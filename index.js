@@ -16,6 +16,18 @@ import toc from 'remark-toc';
 import unified from 'unified';
 import visit from 'unist-util-visit';
 
+const root = `/gramjs-docs-test`;
+
+const head = `<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="${root}/static/style.css">
+        <script src="${root}/static/script.js" defer></script>
+    </head>
+    <body>`;
+
+const foot = `</body></html>`;
+
 const onDirective = node => {
     const data = node.data || (node.data = {});
     const hast = h(node.name, node.attributes, node.children);
@@ -74,7 +86,7 @@ glob('src/**/*.md', async (error, files) => {
 
             await fs.writeFile(
                 `${newPath}${path.sep}${name}.html`,
-                `<!doctype html><html><head><link rel="stylesheet" href="/static/style.css"><script src="/static/script.js" defer></script></head><body>${doc}</body></html>`,
+                `${head}${doc}${foot}`,
             );
         }),
     );
