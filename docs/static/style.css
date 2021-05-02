@@ -12,6 +12,11 @@ body {
     margin: 0;
 }
 
+table {
+    display: block;
+    overflow: auto;
+}
+
 th {
     border-bottom: 2px solid rgb(230, 236, 241);
     color: rgb(157, 170, 182);
