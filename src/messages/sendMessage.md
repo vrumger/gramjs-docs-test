@@ -11,26 +11,28 @@ Sends a message to a chat
 :::tab{title="JavaScript"}
 
 ```js
-const {Api, TelegramClient} = require('telegram');
-const {StringSession} = require('telegram/sessions');
+const { Api, TelegramClient } = require('telegram');
+const { StringSession } = require('telegram/sessions');
 
-const session = new StringSession('');****
+const session = new StringSession('');
 const client = new TelegramClient(session, apiId, apiHash, {});
 
 (async function run() {
-    const result = await client.invoke(new Api.messages.sendMessage({
-		noWebpage: true,
-		silent: true,
-		background: true,
-		clearDraft: true,
-		peer: new Api.InputPeer({...}),
-		replyToMsgId: 6872073,
-		message: 'random string here',
-		randomId: 1848690,
-		replyMarkup: new Api.ReplyMarkup({...}),
-		entities: [new Api.MessageEntity({...})],
-		scheduleDate: 789917,
-		}));
+    const result = await client.invoke(
+        new Api.messages.sendMessage({
+            noWebpage: true,
+            silent: true,
+            background: true,
+            clearDraft: true,
+            peer: new Api.InputPeer({ /* ... */ }),
+            replyToMsgId: 6872073,
+            message: 'random string here',
+            randomId: 1848690,
+            replyMarkup: new Api.ReplyMarkup({ /* ... */ }),
+            entities: [new Api.MessageEntity({ /* ... */ })],
+            scheduleDate: 789917,
+        }),
+    );
     console.log(result); // prints the result
 })();
 ```
@@ -40,26 +42,30 @@ const client = new TelegramClient(session, apiId, apiHash, {});
 :::tab{title="TypeScript"}
 
 ```ts
-import {Api, TelegramClient} from 'telegram';
-import {StringSession} from 'telegram/sessions';
+import { Api, TelegramClient } from 'telegram';
+import { StringSession } from 'telegram/sessions';
 
 const session = new StringSession('');
 const client = new TelegramClient(session, apiId, apiHash, {});
 
 (async function run() {
-    const result: Api.Updates = await client.invoke(new Api.messages.sendMessage({
-		noWebpage: true,
-		silent: true,
-		background: true,
-		clearDraft: true,
-		peer: new Api.InputPeer({...}),
-		replyToMsgId: 6872073,
-		message: 'random string here',
-		randomId: 1848690,
-		replyMarkup: new Api.ReplyMarkup({...}),
-		entities: [new Api.MessageEntity({...})],
-		scheduleDate: 789917,
-		}));
+    const result: Api.Updates = await client.invoke(
+        new Api.messages.sendMessage({
+            noWebpage: true,
+            silent: true,
+            background: true,
+            clearDraft: true,
+            peer: new Api.InputPeer({ /* ... */ }),
+            replyToMsgId: 6872073,
+            message: 'random string here',
+            randomId: 1848690,
+            replyMarkup: new Api.ReplyMarkup({ /* ... */ }),
+            entities: [
+                new Api.MessageEntity({ /* ... */ }),
+            ],
+            scheduleDate: 789917,
+        }),
+    );
     console.log(result); // prints the result
 })();
 ```
@@ -70,7 +76,7 @@ const client = new TelegramClient(session, apiId, apiHash, {});
 
 ## TL schema
 
-```
+```txt
 updatesTooLong#e317af7e = Updates;
 updateShortMessage#2296d2c8 flags:# out:flags.1?true mentioned:flags.4?true media_unread:flags.5?true silent:flags.13?true id:int user_id:int message:string pts:int pts_count:int date:int fwd_from:flags.2?MessageFwdHeader via_bot_id:flags.11?int reply_to:flags.3?MessageReplyHeader entities:flags.7?Vector<MessageEntity> = Updates;
 updateShortChatMessage#402d5dbb flags:# out:flags.1?true mentioned:flags.4?true media_unread:flags.5?true silent:flags.13?true id:int from_id:int chat_id:int message:string pts:int pts_count:int date:int fwd_from:flags.2?MessageFwdHeader via_bot_id:flags.11?int reply_to:flags.3?MessageReplyHeader entities:flags.7?Vector<MessageEntity> = Updates;
