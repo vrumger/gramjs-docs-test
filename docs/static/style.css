@@ -1,0 +1,8 @@
+.tabs-title {
+    display: flex;
+    gap: 1rem;
+}
+
+.tab.hidden {
+    display: none;
+}
