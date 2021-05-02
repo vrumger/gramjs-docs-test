@@ -30,9 +30,9 @@ const head = `<!doctype html>
         <link rel="stylesheet" href="${root}/static/style.css">
         <script src="${root}/static/script.js" defer></script>
     </head>
-    <body class="container">`;
+    <body><div class="container">`;
 
-const foot = `</body></html>`;
+const foot = `</div></body></html>`;
 
 const onDirective = node => {
     const data = node.data || (node.data = {});
