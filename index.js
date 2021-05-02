@@ -21,14 +21,16 @@ const root = `/gramjs-docs-test`;
 const head = `<!doctype html>
 <html>
     <head>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
         <link
             rel="stylesheet"
             href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css"
         />
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap" rel="stylesheet"> 
         <link rel="stylesheet" href="${root}/static/style.css">
         <script src="${root}/static/script.js" defer></script>
     </head>
-    <body>`;
+    <body class="container">`;
 
 const foot = `</body></html>`;
 
@@ -65,7 +67,7 @@ const processor = unified()
     .use(toc)
     .use(remark2rehype, { allowDangerousHtml: true })
     .use(slug)
-    .use(autolinkHeadings, { behavior: 'wrap' })
+    .use(autolinkHeadings, { behavior: 'append' })
     .use(highlight)
     .use(raw)
     .use(html);

@@ -1,3 +1,67 @@
+body {
+    font-family: 'Fira Sans', sans-serif;
+    background: #f5f7f9;
+    box-sizing: border-box;
+}
+
+#table-of-contents + ul p {
+    margin: 0;
+}
+
+th {
+    border-bottom: 2px solid rgb(230, 236, 241);
+    color: rgb(157, 170, 182);
+}
+
+th,
+td {
+    padding: 0.5rem;
+}
+
+th:not([align]),
+td:not([align]) {
+    text-align: left;
+}
+
+td strong {
+    color: rgb(59, 69, 78);
+}
+
+a {
+    text-decoration: none;
+    color: rgb(3, 209, 235);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.icon-link {
+    margin-left: 0.5rem;
+}
+
+.icon-link::before {
+    content: '';
+    opacity: 0;
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background: url(/static/link.svg);
+}
+
+h1:hover .icon-link::before,
+h2:hover .icon-link::before,
+h3:hover .icon-link::before,
+h4:hover .icon-link::before,
+h5:hover .icon-link::before,
+h6:hover .icon-link::before {
+    opacity: 1;
+}
+
+:target {
+    text-decoration: underline;
+}
+
 .tabs-title {
     display: flex;
     gap: 1rem;
@@ -5,4 +69,37 @@
 
 .tab.hidden {
     display: none;
+}
+
+.container {
+    width: 100%;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
 }
