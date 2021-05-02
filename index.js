@@ -21,6 +21,10 @@ const root = `/gramjs-docs-test`;
 const head = `<!doctype html>
 <html>
     <head>
+        <link
+            rel="stylesheet"
+            href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css"
+        />
         <link rel="stylesheet" href="${root}/static/style.css">
         <script src="${root}/static/script.js" defer></script>
     </head>
